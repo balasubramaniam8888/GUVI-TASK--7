@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>THE TOTAL POPULATION OF COUNTRIES USING REDUCE FUNCTION</h1>
+    <h2>pls rightclick +> inspect +> console</h2>
+    <script>
+      var xhr = new XMLHttpRequest();
+      xhr.open("GET", "https://restcountries.com/v3.1/all");
+
+      xhr.send();
+
+      xhr.onload = function pop() {
+        let nationdetails = JSON.parse(xhr.responseText);
+
+        const b = [];
+        for (i = 0; i < nationdetails.length; i++) {
+          b.push(nationdetails[i].population);
+        }
+        const population = b.reduce(function (x, r) {
+          return x + r;
+        });
+        console.log("THE TOTAL POPULATION OF COUNTRIES IS:");
+        console.log(population);
+      };
+    </script>
+  </body>
+</html>

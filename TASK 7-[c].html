@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TASK-7 (c)</title>
+  </head>
+  <body>
+    <h1>RETURNING country name,capital & flags</h1>
+    <h2>pls right click +> inspect +> console</h2>
+    <script>
+      var xhr = new XMLHttpRequest();
+      xhr.open("GET", "https://restcountries.com/v3.1/all");
+
+      xhr.send();
+
+      xhr.onload = function pop() {
+        let nationdetails = JSON.parse(xhr.responseText);
+
+        nationdetails.forEach((nationaldetails) => {
+          console.log(nationaldetails.name.common);
+          console.log(nationaldetails.capital);
+          console.log(nationaldetails.flag);
+        });
+      };
+    </script>
+  </body>
+</html>

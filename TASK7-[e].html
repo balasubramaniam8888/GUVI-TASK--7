@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TASK7 (e)</title>
+  </head>
+  <body>
+    <h1>THE COUNTRIES WHICH USES US DOLLARS AS CURRENCY IS:</h1>
+    <h2>pls rightclick +> inspect +> console</h2>
+    <script>
+      var xhr = new XMLHttpRequest();
+      xhr.open("GET", "https://restcountries.com/v3.1/all");
+
+      xhr.send();
+
+      xhr.onload = function () {
+        let nationdetails = JSON.parse(xhr.responseText);
+        var currencies_1 = nationdetails.filter(
+          (element1) => element1.currencies !== undefined
+        );
+        console.log("THE COUNTRIES WHICH USES US DOLLARS AS CURRENCY IS:");
+        currencies_1.map((element2) => {
+          if (element2.currencies.hasOwnProperty("USD")) {
+           
+            console.log(element2.name.common);
+          }
+        });
+      };
+    </script>
+ 
+     <span>REF:By MENTOR "SWATHY"<span>
+  </body>
+</html>
